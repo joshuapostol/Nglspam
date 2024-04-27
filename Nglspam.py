@@ -32,7 +32,7 @@ def main():
         # Wrapping text to limit output to 40 characters per line
         banner_text_wrapped = textwrap.fill(banner_text, width=40)
         github_link_wrapped = textwrap.fill(github_link, width=40)
-        facebook_link_wrapped = textwrap.fill(facebook_link, width=40)
+        facebook_link_wrapped = textwrap.fill(facebook_link, width=100)
 
         box_ui = f"\033[91m{'-'*54}\n" + \
                  f"{banner_text_wrapped}\n" + \
@@ -47,14 +47,14 @@ def main():
         message = input("\033[91mEnter message:~ \033[1;91m")
         amount = int(input("\033[91mEnter amount:~ \033[1;91m"))
         
-        if amount > 40:
-            print("Sorry, the limit is 40.")
+        if amount > 100:
+            print("Sorry, the limit is 100.")
         else:
             for i in range(1, amount + 1):
                 status_code = sendSpam(user, message)
                 text = f"\033[93m[ NGL ] \033[91m[\033[91m{i}\033[91m][{'success' if status_code == 200 else 'error'}]: Message sent to target: {user}\033[0m"
                 print(text)
-                time.sleep(1)
+                time.sleep(2)
         
             print('\n\033[91mMahal ka ni Joshua :)\033[0m')
         
